@@ -137,7 +137,7 @@ const sortAndFilterQuizzes = (quizzesSnapshot) => {
 
     // Filter based on genre
     let filteredQuizzes = filterSelect.value === "All" ? quizzesArray : quizzesArray.filter((quiz) => quiz.genre === filterSelect.value);
-    filteredQuizzes = quizzesArray.filter((quiz) => quiz.visibility === "Public");
+    filteredQuizzes = filteredQuizzes.filter((quiz) => quiz.visibility === "Public");
 
     // Sort based on selected criteria
     switch (sortSelect.value) {

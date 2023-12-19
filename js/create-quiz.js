@@ -418,6 +418,8 @@ const fetchQuizData = async (quizID) => {
             // If editting, we dont want to change the creation date so we keep a reference to the original
             originalCreationDate = quizData.creationDate;
             originalLikeCount = quizData.likeCount;
+            genreSelect.value = quizData.genre;
+            visibilitySelect.value = quizData.visibility;
         } else {
             console.error("Quiz not found");
         }
