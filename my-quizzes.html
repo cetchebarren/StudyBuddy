@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x: hidden;">
+  <head>
+    <title>My Quizzes - StudyBuddy</title>
+    <meta property="og:title" content="MyQuizzes - StudyBuddy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+        overflow-x: hidden;
+        position: relative;
+
+      }
+    </style>
+    <link rel="icon" href="media/favicon.png?v=2">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="css/style.css" />
+    <div>
+      <link href="css/my-quizzes.css" rel="stylesheet" />
+
+      <div class="my-quizzes-container">
+        <header
+          data-thq="thq-navbar"
+          class="my-quizzes-navbar-interactive-complete"
+        >
+        <div class="IconAndTitleContainer">
+          <a href="index.html"><img href="index.html" class="SiteIcon site-icon" src = "media/siteicon.png"></a>
+          <a href="index.html" class="my-quizzes-navlink">StudyBuddy</a>
+        </div>
+          <div data-thq="thq-navbar-nav" class="my-quizzes-desktop-menu">
+            <nav class="my-quizzes-links">
+              <a href="leaderboard.html" class="my-quizzes-navlink1">
+                Leaderboard
+              </a>
+              <a href="about.html" class="my-quizzes-navlink2">About</a>
+            </nav>
+            <input
+              type="text"
+              placeholder="Search"
+              class="my-quizzes-textinput input"
+            />
+            <div class="my-quizzes-buttons">
+              <a href="log-in.html" class="my-quizzes-login button">Login</a>
+              <a href="sign-up.html" class="my-quizzes-register button">
+                <span>
+                  <span>Sign Up</span>
+                  <br />
+                </span>
+              </a>
+              <a id="LogoutDesktop" class="my-quizzes-logout button">
+                <span>
+                  <span>Logout</span>
+                  <br />
+                </span>
+              </a>
+            </div>
+          </div>
+          <div data-thq="thq-burger-menu" class="my-quizzes-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="my-quizzes-icon">
+              <path
+                d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+              ></path>
+            </svg>
+          </div>
+          <div data-thq="thq-mobile-menu" class="my-quizzes-mobile-menu">
+            <div class="my-quizzes-nav">
+              <div class="my-quizzes-top">
+                <div data-thq="thq-close-menu" class="my-quizzes-close-menu">
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    id="CloseMenu"
+                    class="my-quizzes-icon02"
+                  >
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+                <h1 class="my-quizzes-text06">StudyBuddy</h1>
+              </div>
+              <nav class="my-quizzes-links1">
+                <a href="leaderboard.html" class="my-quizzes-navlink3">
+                  <span class="my-quizzes-text07">Leaderboard</span>
+                  <br />
+                </a>
+                <a href="about.html" class="my-quizzes-text09">About</a>
+              </nav>
+              <div class="my-quizzes-buttons1">
+                <a href="log-in.html" class="my-quizzes-login1 button">Login</a>
+                <a href="sign-up.html" class="my-quizzes-register1 button">
+                  Sign Up
+                </a>
+                <a id="LogoutMobile" class="my-quizzes-logout1 button">
+                  <span>
+                    <span>Logout</span>
+                    <br />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="my-quizzes-container1">
+          <h1 class = "my-quizzes-heading">
+            <span>My Quizzes</span>
+            <br />
+          </h1>
+          <img src="media/loading.gif" id="loader" class="loadingProgress">
+          <ul id="QuizList" class="my-quizzes-ul">
+            <!-- <li class="my-quizzes-li list-item">
+              <h1 class="my-quizzes-title">Test Title</h1>
+              <span class="my-quizzes-text16">
+                <span>Created 00/00/00, Genre: genre, ?? Terms</span>
+                <br />
+                <br />
+                <br />
+              </span>
+            </li> -->
+          </ul>
+          <ul class="post-list">
+            <a id= "CreateNewQuizButton" href="create-quiz.html">
+              <li id="createNewQuiz" class="my-quizzes-li1 list-item">
+                <h6 class="my-quizzes-title1">
+                  <span class="my-quizzes-text21">Create New Quiz</span>
+                  <br />
+                  <br />
+                </h6>
+              </li>
+            </a>
+            <li id="bottomList" class="my-quizzes-li2 list-item"></li>
+          </ul>
+        </div>
+        <footer class="my-quizzes-footer">
+          <span class="my-quizzes-text24">
+            Created by Chad Etchebarren, 2023
+          </span>
+          <div class="icon-group">
+            <a href="https://www.linkedin.com/in/chad-etchebarren-b93461276/" target="_blank" rel="noopener noreferrer">
+              <img src="media/linkedin.png" class="linkedinIcon" alt="LinkedIn" width="20" height="20">
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      defer=""
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhxbZfBhMDe54tJyO1dhVHJOx3CNW0H7g",
+        authDomain: "studybuddy-94158.firebaseapp.com",
+        projectId: "studybuddy-94158",
+        storageBucket: "studybuddy-94158.appspot.com",
+        messagingSenderId: "86479498232",
+        appId: "1:86479498232:web:648218dbb342133259840d"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <script src = "js/my-quizzes.js" type="module"></script> 
+  </body>
+</html>

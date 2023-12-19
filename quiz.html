@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x: hidden">
+  <head>
+    <title>Quiz - StudyBuddy</title>
+    <meta property="og:title" content="Quiz - StudyBuddy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+        position: relative;
+      }
+    </style>
+    <link rel="icon" href="media/favicon.png?v=2">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body class="quiz-body body">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <div id="overlay" class="overlay"></div>
+
+    <div id="deletePopup" class="popup">
+      <span><b>Enter Password to Delete Quiz</b></span>
+      <div class="showPasswordContainer">
+        <input id="showPasswordID" type="checkbox" class="showPassword" />
+        <label for="showPasswordID" class="show-password-label">
+          <img src="media/eyeslash.svg" id="eyeIcon" alt="Show Password">
+        </label>
+      </div>
+      <input type="text" id="deleteConfirmInput" class="deleteInput" placeholder="Enter Password">
+      <div id="incorrectPasswordNotification" class="incorrect-password-notification"> 
+        <span id="passwordNotificationText">Incorrect Password</span>
+      </div>
+      <button id="confirmDeleteButton" type="button" class="quiz-buttonConfirmDelete button">Confirm Delete</button>        
+      <button id="cancelDeleteButton" type="button" class="quiz-buttonCancelDelete button">Cancel</button>        
+    </div>
+
+    <div id="leaderboardPopup" class="leaderboardPopup">
+       <h1 class="leaderboardTitle">Quiz Leaderboard</h1>
+       <div class="optionsContainerLB">
+        <div class="leaderboard-option">
+          <strong class="quiz-format">
+            <span>Format &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160;</span>
+            <br />
+            <br />
+          </strong>
+          <select id="formatLB" class="quiz-selectLB">
+            <option value="typed" selected="">Typed</option>
+            <option value="multipleChoice">Multiple Choice</option>
+          </select>
+        </div>
+        <div class="leaderboard-option">
+          <strong class="quiz-order">
+            <span>Question Order</span>
+            <br />
+            <br />
+          </strong>
+          <select id="questionOrderLB" class="quiz-selectLB">
+            <option value="random" selected="">Random</option>
+            <option value="inOrder">In Order</option>
+          </select>
+        </div>
+        <div class="leaderboard-option">
+          <strong class="quiz-answer-is">
+            <span>Answer is the:</span>
+            <br />
+            <br />
+          </strong>
+          <select id="answerTypeLB" class="quiz-selectLB">
+            <option value="definition" selected="">Defintion</option>
+            <option value="term">Term</option>
+          </select>
+        </div>
+      </div>
+      <ol class="leaderboardLabels">
+        <li class="listItemLB">
+          <span class="leaderboard-left"><b>User</b></span>
+          <span class="leaderboard-middle"><b>Score</b></span>          
+          <span class="leaderboard-right"><b>Time</b></span>
+        </li>
+      </ol>
+       <ol id = "leaderboardList" class="leaderboardOrderedList">
+          <li class="listItemLB">
+            <span class="leaderboard-left">55. USERNAMEUSERNAM</span>
+            <span class="leaderboard-right">99h&#160;99m</span>
+          </li>
+       </ol>
+       <button id="closeLeaderboard" type="button" class="quiz-button-closeLB button">
+        <span>
+          <span>Close</span>
+          <br />
+        </span>
+      </button>
+    </div>
+
+    <div>
+    <div>
+      <link href="css/quiz.css" rel="stylesheet" />
+
+      <div class="quiz-container">
+        <header data-thq="thq-navbar" class="quiz-navbar-interactive-complete">
+          <div class="IconAndTitleContainer">
+            <a href="index.html"><img href="index.html" class="SiteIcon site-icon" src = "media/siteicon.png"></a>
+            <a href="index.html" class="quiz-navlink">StudyBuddy</a>
+          </div>
+          <div data-thq="thq-navbar-nav" class="quiz-desktop-menu">
+            <nav class="quiz-links">
+              <a href="leaderboard.html" class="quiz-navlink1">Leaderboard</a>
+              <a href="about.html" class="quiz-navlink2">About</a>
+            </nav>
+            <input
+              type="text"
+              placeholder="Search"
+              class="quiz-textinput input"
+            />
+            <div class="quiz-buttons">
+              <a id="loginMobile"class="quiz-login button">Login</a>
+              <a id="signUpMobile" class="quiz-register button">
+                <span>
+                  <span>Sign Up</span>
+                  <br />
+                </span>
+              </a>
+              <a id="logoutMobile" class="quiz-logout button">
+                <span>
+                  <span>Logout</span>
+                  <br />
+                </span>
+              </a>
+            </div>
+          </div>
+          <div data-thq="thq-burger-menu" class="quiz-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="quiz-icon">
+              <path
+                d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+              ></path>
+            </svg>
+          </div>
+          <div data-thq="thq-mobile-menu" class="quiz-mobile-menu">
+            <div class="quiz-nav">
+              <div class="quiz-top">
+                <div data-thq="thq-close-menu" class="quiz-close-menu">
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    id="CloseMenu"
+                    class="quiz-icon02"
+                  >
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+                <h1 class="quiz-text006">StudyBuddy</h1>
+              </div>
+              <nav class="quiz-links1">
+                <a href="leaderboard.html" class="quiz-navlink3">
+                  <span class="quiz-text007">Leaderboard</span>
+                  <br />
+                </a>
+                <a href="about.html" class="quiz-text009">About</a>
+              </nav>
+              <div class="quiz-buttons1">
+                <a id="loginDesktop" class="quiz-login1 button">Login</a>
+                <a id="signUpDesktop" class="quiz-register1 button">
+                  Sign Up
+                </a>
+                <a id="logoutDesktop" class="quiz-logout1 button">
+                  <span>
+                    <span>Logout</span>
+                    <br />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div id="QuestionNumberAndTimerContainer" class="question-number-and-timer-container">
+          <h1 id="QuestionNumber" class="question-number">Question</h1>
+          <h1 id="TimerText" class="timer">Time: 0:00</h1>
+        </div>
+        <div id="PreQuizContainer" class="quiz-pre-quiz">
+          <div class="quiz-quiz-options">
+            <span id="QuizTitle" class="quiz-quiz-title">
+              <span><!--Title of a title of a really loooooooooong title and quiz..quizzname..*/--> </span>
+              <br />
+            </span>
+            <span id="Author" class="quiz-author"><!--by username12345--></span>
+            <span id="Information" class="quiz-information">
+              <span><!--created 00/00/00, Genre, ?? Terms--></span>
+              <br />
+            </span>
+            <span id="Visibility" class="quiz-information">
+              <!-- <span>Public</span> -->
+              <br />
+            </span>
+            <button id="leaderboardButton" type="button" class="quiz-buttonLB button">
+              <span>
+                <span>Quiz Leaderboard</span>
+                <br />
+              </span>
+            </button>
+            <div id="ModifySection" class="quiz-container1">
+              <button id="ModifyQuiz" type="button" class="quiz-button button">
+                <span>
+                  <span>Modify</span>
+                  <br />
+                </span>
+              </button>
+              <button id="EditQuiz" type="button" class="quiz-button1 button">
+                <span>
+                  <span>Edit</span>
+                  <br />
+                </span>
+              </button>
+              <button id="DeleteQuiz" type="button" class="quiz-button2 button">
+                <span>
+                  <span>Delete</span>
+                  <br />
+                </span>
+              </button>
+            </div>
+            <div class="quiz-container2">
+              <strong class="quiz-format">
+                <span>Format</span>
+                <br />
+                <br />
+              </strong>
+              <select id="FormatSelect" class="quiz-select">
+                <option value="typed" selected="">Typed</option>
+                <option value="multipleChoice">Multiple Choice</option>
+              </select>
+            </div>
+            <div class="quiz-container3">
+              <strong class="quiz-order">
+                <span>Question Order</span>
+                <br />
+                <br />
+              </strong>
+              <select id="QuestionOrderSelect" class="quiz-select1">
+                <option value="random" selected="">Random</option>
+                <option value="inOrder">In Order</option>
+              </select>
+            </div>
+            <div class="quiz-container4">
+              <strong class="quiz-answer-is">
+                <span>Answer is the:</span>
+                <br />
+                <br />
+              </strong>
+              <select id="AnswerTypeSelect" class="quiz-select2">
+                <option value="definition" selected="">Defintion</option>
+                <option value="term">Term</option>
+              </select>
+            </div>
+            <button id="LikeQuiz" type="button" class="like-button">
+              <img id = "LikeIcon" class="like-icon" src="media/unliked.svg">
+              <!-- <span>
+                <span id="LikeText">Like</span>
+                <br /> -->
+              </span>
+            </button>
+            <button id="BeginQuiz" type="button" class="quiz-button5 button">
+              <span>
+                <span>Begin</span>
+                <br />
+              </span>
+            </button>
+          </div>
+          <div class="quiz-terms-and-definitions">
+            <ul id="TermsList" class="quiz-ul list">
+              <!-- <li class="quiz-li list-item">
+                <h2 class="quiz-term">
+                  <span>Term</span>
+                  <br />
+                </h2>
+                <span class="quiz-definition">
+                  <span>
+                    This is a test term
+                  </span>
+                  <br />
+                </span>
+              </li>
+              <li class="quiz-li1 list-item">
+                <h2 class="quiz-term1">
+                  <span>Term</span>
+                  <br />
+                </h2>
+                <span class="quiz-definition">
+                  <span>
+                    This is a test definition
+                  </span>
+                  <br />
+                </span>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div id="MultipleChoiceQuizContainer" class="quiz-multiple-choice">
+          <div class="quiz-terms-and-definitions1">
+            <span id="InstructionsMultipleChoice" class="quiz-instructions">
+              <span>What is the</span>
+              <span id="MultipleChoiceQuestionText1">DEFINITION</span>
+              <span>for</span>
+              <span>"</span><span id="MultipleChoiceQuestionText2">TERM?</span><span>":</span>
+              <br />
+            </span>
+            <ul class="multiple-choice-list">
+              <li class="quiz-option-a list-item">
+                <div class="MultipleChoiceListItemDiv">
+                  <input
+                    type="radio"
+                    id="RadioA"
+                    name="radio"
+                    class="quiz-radiobutton"
+                    value="0"
+                  />
+                  <span id="TextA" class="quiz-definition">
+                    <span>
+                      This is a test definition for a term that is supposed to
+                      demonstrate that I have correctly implemented text wrap so
+                      that it line breaks at the appropriate time in the sentence
+                      and does not overflow out of the container.&nbsp;This is a
+                      test definition for a term that is supposed to demonstrate
+                      that I have correctly implemented text wrap so that it line
+                      breaks at the appropriate time in the sentence and does not
+                      overflow out of the container.&nbsp;This is a test definitio
+                      orrectly implemented text wrap so that it line breaks at the
+                      appropriate time in the sentence and does not overflow out
+                      of the container.
+                  </span>
+                </div>
+              </li>
+              <li class="quiz-option-b list-item">
+                <div class="MultipleChoiceListItemDiv">
+                  <input
+                    type="radio"
+                    id="RadioB"
+                    name="radio"
+                    class="quiz-radiobutton"
+                    value="1"
+                  />
+                  <span id="TextB" class="quiz-definition">
+                    <span>
+                      This is a test definition for a term that is supposed to
+                      demonstrate that I have correctly implemented text wrap so
+                      that it line breaks at the appropriate time in the sentence
+                      and does not overflow out of the container.&nbsp;This is a
+                      test definition for a term that is supposed to demonstrate
+                      that I have correctly implemented text wrap so that it line
+                      breaks at the appropriate time in the sentence and does not
+                      overflow out of the container.&nbsp;This is a test definitio
+                      orrectly implemented text wrap so that it line breaks at the
+                      appropriate time in the sentence and does not overflow out
+                      of the container.
+                  </span>
+                 </div> 
+              </li>
+              <li class="quiz-option-c list-item">
+                <div class="MultipleChoiceListItemDiv">
+                  <input
+                    type="radio"
+                    id="RadioC"
+                    name="radio"
+                    class="quiz-radiobutton"
+                    value="2"
+                  />
+                  <span id="TextC" class="quiz-definition">
+                    <span>
+                      This is a test definition for a term that is supposed to
+                      demonstrate that I have correctly implemented text wrap so
+                      that it line breaks at the appropriate time in the sentence
+                      and does not overflow out of the container.&nbsp;This is a
+                      test definition for a term that is supposed to demonstrate
+                      that I have correctly implemented text wrap so that it line
+                      breaks at the appropriate time in the sentence and does not
+                      overflow out of the container.&nbsp;This is a test definitio
+                      orrectly implemented text wrap so that it line breaks at the
+                      appropriate time in the sentence and does not overflow out
+                      of the container.
+                  </span>
+                 </div> 
+              </li>
+              <li class="quiz-option-d list-item">
+                <div class="MultipleChoiceListItemDiv">
+                  <input
+                    type="radio"
+                    id="RadioD"
+                    name="radio"
+                    class="quiz-radiobutton"
+                    value="3"
+                  />
+                  <span id="TextD" class="quiz-definition">
+                    <span>
+                      This is a test definition for a term that is supposed to
+                      demonstrate that I have correctly implemented text wrap so
+                      that it line breaks at the appropriate time in the sentence
+                      and does not overflow out of the container.&nbsp;This is a
+                      test definition for a term that is supposed to demonstrate
+                      that I have correctly implemented text wrap so that it line
+                      breaks at the appropriate time in the sentence and does not
+                      overflow out of the container.&nbsp;This is a test definitio
+                      orrectly implemented text wrap so that it line breaks at the
+                      appropriate time in the sentence and does not overflow out
+                      of the container.
+                  </span>
+                </div>
+              </li>
+              <li class="quiz-submit-continue list-item">
+                <button
+                  id="SubmitMultipleChoice"
+                  type="button"
+                  class="quiz-submit button"
+                >
+                  <span>
+                    <span>Submit</span>
+                    <br />
+                  </span>
+                </button>
+                <h1 id="CorrectnessMultipleChoice" class="quiz-correctness">
+                  CORRECT&nbsp; / INCORRECT
+                </h1>
+                <button
+                  id="ContinueMultipleChoice"
+                  type="button"
+                  class="quiz-continue"
+                >
+                  <span>
+                    <span>Continue</span>
+                    <br />
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id = "TypedQuizContainer" class="quiz-typed">
+          <div class="quiz-terms-and-definitions2">
+            <span id="InstructionsTyped" class="quiz-instructions1">
+              <span>Type the </span>
+              <span id="TypedQuestionText1">DEFINITION</span>
+              <span>for </span>
+              <span>"</span><span id="TypedQuestionText2">TERM?</span><span>":</span>
+              <br />
+            </span>
+            <span >
+              <span id="CorrectAnswerLabelTyped" class="quiz-correct-answer-label">Correct Answer:</span>
+              <br />
+              <span id="CorrectAnswerTyped" class="quiz-correct-answer">
+                This is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer, yes
+                this is the correct answer, yes this is the correct answer
+              </span>
+              <br />
+            </span>
+            <textarea
+              id="InputTextArea"
+              placeholder="Type Here"
+              class="quiz-textarea textarea"
+            ></textarea>
+            <ul class="typed-submit-continue-ul list">
+              <li class="quiz-submit-continue1 list-item">
+                <button
+                  id="SubmitTyped"
+                  type="button"
+                  class="quiz-submit1 button"
+                >
+                  <span>
+                    <span>Submit</span>
+                    <br />
+                  </span>
+                </button>
+                <h1 id="CorrectnessTypedText" class="quiz-correctness1">
+                  CORRECT&nbsp; / INCORRECT
+                </h1>
+                <button
+                  id="ContinueTyped"
+                  type="button"
+                  class="quiz-continue"
+                >
+                  <span>
+                    <span>Continue</span>
+                    <br />
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="ResultsContainer" class="quiz-results">
+          <div class="quiz-terms-and-definitions3">
+            <span class="quiz-results1">
+              <span>RESULTS:</span>
+              <br />
+            </span>
+            <span id="Score" class="quiz-score">
+              <span>Score:</span>
+              <br />
+            </span>
+            <span id="NewHighScore" class="quiz-new-high-score">
+              <span>NEW HIGH SCORE!</span>
+              <br />
+            </span>
+            <span id="TimerResults" class="quiz-timer2">
+              <span>Time:</span>
+              <br />
+            </span>
+            <ul id="IncorrectAnswerList" class="list">
+              <!-- <li class="quiz-li2 list-item">
+                <span class="quiz-correct-answer">The question goes here</span>
+                <h2 class="quiz-correct-answer-heading">
+                  <span>Correct Answer:</span>
+                  <br />
+                </h2>
+                <span class="quiz-correct-answer1">
+                  <span>
+                    This is the correct answer
+                  </span>
+                  <br />
+                </span>
+                <h2 class="quiz-your-answer-heading">
+                  <span>Your Answer:</span>
+                  <br />
+                </h2>
+                <span class="quiz-your-answer">
+                  <span>
+                    This is your answer
+                  </span>
+                  <br />
+                </span>
+              </li> -->
+            </ul>              
+            <button
+              id="Finish"
+              type="button"
+              class="quiz-finish"
+            >
+              <span>
+                <span>Finish</span>
+                <br />
+              </span>
+            </button>
+          </div>
+        </div>
+        <footer class="quiz-footer">
+          <span class="quiz-text125">Created by Chad Etchebarren, 2023</span>
+          <div class="index-icon-group1">
+            <a href="https://www.linkedin.com/in/chad-etchebarren-b93461276/" target="_blank" rel="noopener noreferrer">
+              <img src="media/linkedin.png" class="linkedinIcon" alt="LinkedIn" width="20" height="20">
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      defer=""
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhxbZfBhMDe54tJyO1dhVHJOx3CNW0H7g",
+        authDomain: "studybuddy-94158.firebaseapp.com",
+        projectId: "studybuddy-94158",
+        storageBucket: "studybuddy-94158.appspot.com",
+        messagingSenderId: "86479498232",
+        appId: "1:86479498232:web:648218dbb342133259840d"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <script src = "js/quiz.js" type="module"></script>
+  </body>
+</html>
