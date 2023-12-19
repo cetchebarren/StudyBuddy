@@ -1,3 +1,7 @@
+
+# Hosted at
+https://studybuddy-94158.web.app/ 
+
 # Study your way
 This tool was created at the request of law students who couldn't find a study tool that _quite_ fit their needs. But it was designed to be used by anyone!</span> 
 
