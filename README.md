@@ -23,7 +23,7 @@ Repetition is essential for retaining information and recalling it under pressur
 
 ## 🎯 Core Features
 
-### **[Custom Quizzes](ca://s?q=Tell_me_more_about_custom_quizzes)**
+### Custom Quizzes
 StudyBuddy allows users to create their own quizzes with a focus on convenience and flexibility.
 
 - Fill out terms/definitions directly in the browser  
@@ -32,7 +32,7 @@ StudyBuddy allows users to create their own quizzes with a focus on convenience 
 - Like quizzes for quick access  
 - Share quizzes with classmates for collaborative studying  
 
-### **[Quiz Options](ca://s?q=Explain_quiz_options_in_StudyBuddy)**
+### **Quiz Options**
 Users can tailor each quiz to their preferred study style:
 
 - Written or multiple‑choice format  
@@ -41,7 +41,7 @@ Users can tailor each quiz to their preferred study style:
 - Shuffle distractors in multiple‑choice mode  
 - Keep quizzes fresh to avoid memorizing the order instead of the content  
 
-### **[Quiz Features](ca://s?q=Explain_quiz_features_in_StudyBuddy)**
+### **Quiz Features**
 Each quiz includes:
 
 - A built‑in timer  
@@ -51,7 +51,7 @@ Each quiz includes:
 - Intelligent scoring that ignores non‑essential characters (punctuation, spacing)  
 - Timer pauses during answer review to encourage reflection without penalty  
 
-### **[Leaderboards](ca://s?q=Tell_me_more_about_leaderboards)**
+### **Leaderboards**
 StudyBuddy includes two leaderboard systems:
 
 - **Global Leaderboard** — ranks users by total study time  
