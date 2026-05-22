@@ -62,31 +62,30 @@ This lets users challenge themselves — or their friends — and see their prog
 ---
 
 ## 📂 Project Structure
-.
-├── index.html               # Landing page
-├── dashboard.html           # User dashboard
-├── quiz.html                # Quiz engine UI
-├── leaderboard.html         # Global leaderboard
-├── import.html              # Excel import workflow
-│
-├── assets/
-│   ├── css/
-│   │   ├── global.css       # Global styles
-│   │   ├── layout.css       # Layout + responsive rules
-│   │   └── components.css   # Buttons, cards, modals, etc.
-│   │
-│   ├── js/
-│   │   ├── auth.js          # Firebase Auth logic
-│   │   ├── firestore.js     # Firestore reads/writes
-│   │   ├── quiz-engine.js   # Core quiz logic
-│   │   ├── import-xlsx.js   # Excel parsing
-│   │   ├── leaderboard.js   # Leaderboard logic
-│   │   └── ui.js            # UI helpers, animations
-│   │
-│   └── images/              # Icons, logos, screenshots
-│
-└── README.md
-
+. 
+├── index.html               # Landing page 
+├── dashboard.html           # User dashboard 
+├── quiz.html                # Quiz engine UI 
+├── leaderboard.html         # Global leaderboard 
+├── import.html              # Excel import workflow 
+│ 
+├── assets/ 
+│   ├── css/ 
+│   │   ├── global.css       # Global styles 
+│   │   ├── layout.css       # Layout + responsive rules 
+│   │   └── components.css   # Buttons, cards, modals, etc. 
+│   │ 
+│   ├── js/ 
+│   │   ├── auth.js          # Firebase Auth logic 
+│   │   ├── firestore.js     # Firestore reads/writes 
+│   │   ├── quiz-engine.js   # Core quiz logic 
+│   │   ├── import-xlsx.js   # Excel parsing 
+│   │   ├── leaderboard.js   # Leaderboard logic 
+│   │   └── ui.js            # UI helpers, animations 
+│   │ 
+│   └── images/              # Icons, logos, screenshots 
+│ 
+└── README.md 
 
 ---
 
