@@ -1,11 +1,12 @@
 # StudyBuddy — Customizable Study & Memorization Web App
 
-Hosted at:  
-**https://studybuddy-94158.web.app/**
-
 StudyBuddy was created at the request of law students who couldn’t find a study tool that *quite* fit their needs — but it was designed to be useful for anyone.
 
 Repetition is essential for retaining information and recalling it under pressure. StudyBuddy embraces that philosophy by giving learners the ability to study *their* way. With flexible quiz modes, Excel import, accuracy scoring, and leaderboards, users can drill material until it’s fully locked in. Good luck on your exams!
+
+Project overview & showcase: **https://cetchebarren.github.io/projects/studybuddy.html**
+
+Hosted at: **https://studybuddy-94158.web.app/**
 
 ---
 
