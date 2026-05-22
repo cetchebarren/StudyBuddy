@@ -1,22 +1,126 @@
+# StudyBuddy — Customizable Study & Memorization Web App
 
-# Hosted at
-https://studybuddy-94158.web.app/ 
+Hosted at:  
+**https://studybuddy-94158.web.app/**
 
-# Study your way
-This tool was created at the request of law students who couldn't find a study tool that _quite_ fit their needs. But it was designed to be used by anyone!</span> 
+StudyBuddy was created at the request of law students who couldn’t find a study tool that *quite* fit their needs — but it was designed to be useful for anyone.
 
-Repetition is essential in retaining information, and for reciting that information when needed. StudyBuddy recognizes that. This tool allows users to customize their studying to fit _their_ needs, while also having the side benefit of working on their testing and typing speeds.
+Repetition is essential for retaining information and recalling it under pressure. StudyBuddy embraces that philosophy by giving learners the ability to study *their* way. With flexible quiz modes, Excel import, accuracy scoring, and leaderboards, users can drill material until it’s fully locked in. Good luck on your exams!
 
-Users can take advantage of StudyBuddy's convenient features until all of their terms are completely solidified in their memory, and ready to be repeated on exam day! Good luck!
+---
 
-# Features
+## 🧰 Tech Stack
 
-- **Custom Quizzes**: StudyBuddy allows users to create their own custom quizzes. A convenient user experience is critical. This is why when creating a quiz, users have the option to fill out their terms/definitions in the browser or to upload a Microsoft Excel spreadsheet (.xlsx file) to auto-fill the contents of their quiz. Users can search quizzes and sort/filter based on their needs. Quizzes can be liked for easy navigation! This way, classmates can set up quizzes and share with each other so that everyone can do well!
+- **HTML5** — UI structure  
+- **CSS3** — responsive layout, theming, and components  
+- **JavaScript (ES Modules)** — quiz engine, timers, accuracy logic, Excel parsing  
+- **Firebase Authentication** — secure login and user accounts  
+- **Firebase Firestore** — quizzes, user data, scores, leaderboards  
+- **Firebase Hosting** — deployment  
+- **SheetJS (XLSX parsing)** — Excel import support  
 
-- **Quiz Options**: Users can choose if they want to test in written or multiple choice format, the order of the questions (example: randomized), and even if they want the answer to be the term or the definition. This lets you study your own way and keep the quiz fresh. If you take advantage of these options, you won't be memorizing the quiz, but the contents!
+---
 
-- **Quiz Features**: Each quiz has a timer so that users know how long they take. After each answer, the correct answer is displayed against the user's answer and a score is given. In typed quizzes, this score is a percentage based on accuracy, and is only affected by the essential characters of the definition (example: punctuation mistakes are not important). During this time, the quiz timer is paused so that users can reflect on their mistakes without running up their overall time.
+## 🎯 Core Features
 
-- **Leaderboards**: Not only does StudyBuddy have a Global Leaderboard that ranks users on their total time studying, but every individual quiz has its own leaderboards (for each combination of quiz options) so that users can challenge themselves (and their friends) for new high scores! This is a fun way to see your progress in action.  
+### **[Custom Quizzes](ca://s?q=Tell_me_more_about_custom_quizzes)**
+StudyBuddy allows users to create their own quizzes with a focus on convenience and flexibility.
+
+- Fill out terms/definitions directly in the browser  
+- **OR** upload a `.xlsx` spreadsheet to auto‑populate quiz content  
+- Search, sort, and filter quizzes  
+- Like quizzes for quick access  
+- Share quizzes with classmates for collaborative studying  
+
+### **[Quiz Options](ca://s?q=Explain_quiz_options_in_StudyBuddy)**
+Users can tailor each quiz to their preferred study style:
+
+- Written or multiple‑choice format  
+- Randomized or ordered questions  
+- Choose whether to answer with the **term** or the **definition**  
+- Shuffle distractors in multiple‑choice mode  
+- Keep quizzes fresh to avoid memorizing the order instead of the content  
+
+### **[Quiz Features](ca://s?q=Explain_quiz_features_in_StudyBuddy)**
+Each quiz includes:
+
+- A built‑in timer  
+- Immediate feedback after each question  
+- Correct answer comparison  
+- Accuracy‑based scoring for typed quizzes  
+- Intelligent scoring that ignores non‑essential characters (punctuation, spacing)  
+- Timer pauses during answer review to encourage reflection without penalty  
+
+### **[Leaderboards](ca://s?q=Tell_me_more_about_leaderboards)**
+StudyBuddy includes two leaderboard systems:
+
+- **Global Leaderboard** — ranks users by total study time  
+- **Per‑Quiz Leaderboards** — each quiz tracks high scores for every combination of quiz options  
+
+This lets users challenge themselves — or their friends — and see their progress over time.
+
+---
+
+## 📂 Project Structure
+.
+├── index.html               # Landing page
+├── dashboard.html           # User dashboard
+├── quiz.html                # Quiz engine UI
+├── leaderboard.html         # Global leaderboard
+├── import.html              # Excel import workflow
+│
+├── assets/
+│   ├── css/
+│   │   ├── global.css       # Global styles
+│   │   ├── layout.css       # Layout + responsive rules
+│   │   └── components.css   # Buttons, cards, modals, etc.
+│   │
+│   ├── js/
+│   │   ├── auth.js          # Firebase Auth logic
+│   │   ├── firestore.js     # Firestore reads/writes
+│   │   ├── quiz-engine.js   # Core quiz logic
+│   │   ├── import-xlsx.js   # Excel parsing
+│   │   ├── leaderboard.js   # Leaderboard logic
+│   │   └── ui.js            # UI helpers, animations
+│   │
+│   └── images/              # Icons, logos, screenshots
+│
+└── README.md
 
 
+---
+
+## 🔧 Local Development
+
+Because StudyBuddy uses Firebase services:
+1. A Firebase project  
+2. A valid `firebaseConfig` object  
+3. Firebase Hosting or a local dev server  
+
+Running locally:
+npm install -g firebase-tools
+firebase login
+firebase init
+firebase serve
+Then open: http://localhost:5000
+
+
+---
+
+## 🎯 Goals of This Project
+
+- Provide a flexible study tool for students  
+- Support custom study workflows  
+- Make importing and generating quizzes effortless  
+- Track progress and improvement over time  
+- Keep the UI clean, fast, and distraction‑free  
+
+---
+
+## 📬 Contact
+
+- **Portfolio:** https://cetchebarren.github.io  
+- **GitHub:** https://github.com/cetchebarren  
+- **LinkedIn:** https://linkedin.com/in/chad-etchebarren/
+
+---
