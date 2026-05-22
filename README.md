@@ -60,8 +60,9 @@ StudyBuddy includes two leaderboard systems:
 This lets users challenge themselves — or their friends — and see their progress over time.
 
 ---
-```
+
 ## 📂 Project Structure
+```
 . 
 ├── index.html               # Landing page 
 ├── dashboard.html           # User dashboard 
